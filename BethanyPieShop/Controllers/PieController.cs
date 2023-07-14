@@ -1,4 +1,5 @@
 ﻿using BethanyPieShop.Model;
+using BethanyPieShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BethanyPieShop.Controllers
@@ -15,8 +16,11 @@ namespace BethanyPieShop.Controllers
 
         public IActionResult List()
         {
-            ViewBag.CurrentCategory = "Chease cakes";
-            return View(_pieRepository.AllPies);
+           // ViewBag.CurrentCategory = "Chease cakes";
+           // return View(_pieRepository.AllPies);
+
+            PieListViewModel pieListViewModel = new PieListViewModel( _pieRepository.AllPies, "Chease cakes");
+            return View(pieListViewModel);
             
         }
     }
